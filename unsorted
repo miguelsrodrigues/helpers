@@ -1,0 +1,99 @@
+# -----
+# RAILS
+# -----
+
+# check rails version
+$ rails -v
+
+# start development server (if different server than default)
+$ bundle exec rails server
+
+# start production server (with unicorn)
+$ bundle exec unicorn --env production
+
+# deploy (with capistrano)
+$ cap deploy_method_name deploy
+
+# Log: monitor production log
+$ tail -f production.log
+
+
+# --------------------------------------------------
+
+
+# -----
+# RBENV
+# -----
+
+# Lists all Ruby versions known to rbenv, and shows an asterisk next to the currently active version
+$ rbenv versions
+  
+  # global
+  $ rbenv global
+
+  # local
+  $ rbenv local
+
+# Displays the currently active Ruby version, along with information on how it was set
+$ rbenv version
+
+# install ruby
+$ rbenv install <version>
+  Ex: $ rbenv install 1.9.3-p374
+
+
+# --------------------------------------------------
+
+
+# ---
+# ZSH
+# ---
+
+# Permanent alias:
+  -> edit ~/.zshrc
+  -> add line: alias be='bundle exec'
+
+  
+# --------------------------------------------------
+
+
+# ---
+# SSH
+# ---
+
+Linux:
+$ ssh user@host
+  ex: ssh adminspoc@192.168.3.20
+
+Windows:
+shell: putty
+
+
+# --------------------------------------------------
+
+
+# --------
+# SMARTGIT
+# --------
+
+# install SmartGIT (GIT GUI Client)
+$ sudo add-apt-repository ppa:eugenesan/ppa
+$ sudo apt-get update
+$ sudo apt-get install smartgithg
+
+
+# --------------------------------------------------
+
+
+# ---------------
+# SUBLLIME TEXT 2
+# ---------------
+
+# Ubuntu
+$ sudo add-apt-repository ppa:webupd8team/sublime-text-2
+$ sudo apt-get update
+$ sudo apt-get install sublime-text
+
+
+# After install open sublime console and paste: (sublime-text, View -> Show Console)
+import urllib2,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')

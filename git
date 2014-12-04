@@ -1,0 +1,189 @@
+# ---
+# GIT
+# ---
+
+# Configuring GIT
+
+  # Settings for all repos on computer
+  $ git config --global user.name <"User Name">
+  $ git config --global user.email <example@email.com>
+  $ git config --global color.ui true
+
+  # Settings for a single repo
+  $ git config user.name <"User Name">
+  $ git config user.email <example@email.com>
+
+  # generate ssh key
+  $ ssh-keygen -t rsa -C "YOUR@EMAIL.com"    
+
+  # copy ssh key (set it on github/bitbucket)
+  $ cat ~/.ssh/id_rsa.pub
+
+  # test
+  $ ssh -T git@github.com
+  > Hi excid3! Youve successfully authenticated, but GitHub does not provide shell access.
+
+
+# add all files
+$ git add .
+$ git add --all
+
+# add single file
+$ git add /path/to/file.extension
+
+# remove files staged and deleted
+$ git add -u
+
+# commit
+$ git commit -m ‘commit_message’
+
+# commit with message
+$ git commit -am ‘commit_message’
+
+# diff between branches
+# merge: origin_branch into destiny_branch
+$ git diff destiny_branch origin_branch
+
+# clone a repository
+$ git clone git://example.com/myproject
+
+#  REMOTES
+
+  # list local remotes
+  $ git remote -v
+
+  # add new remote
+  $ git remote add remote_to_add
+  
+  # add remote
+  $ git remote add remote_name repository_url
+
+  # remove
+  $ git remote rm remote_to_remove
+
+  # show
+  $ git remote show remote_to_show
+
+# BRANCHES
+
+  # list local branches
+  $ git branch
+
+  # show all branches
+  $ git branch -a
+
+  # show all remote branches
+  $ git branch -r
+  
+  # switch branches
+  $ git checkout branch_name
+
+  # switch to a new branch
+  $ git checkout -b new_branch_name
+
+  # switch to a new branch from a remote branch
+  $ git checkout -b new_branch_name remote/branch_name
+  $ git checkout -b new_branch_name remote_branch_name (if local remote has branch on it)
+
+  # rename local branch
+  $ git branch -m new_branch_name (while in branch to rename)
+  $ git branch -m old_branch_name new_branch_name
+
+  # remove local branch
+  $ git branch -d branch_to_remove
+  $ git branch -D branch_to_remove
+
+  # nuking a remote branch
+  $ git push remote :branch_to_remove
+  
+  # nuking a local tracking branch
+  $ git branch -rd origin/branch_to_remove
+
+# MERGE
+  # merge remote branch into local
+  $ git merge remote/branch_name
+
+# STASH
+  # stash stuff
+  $ git stash
+  $ git stash save
+  $ git stash save "Some message"
+
+  # stash both tracked and untracked files
+  $ git stash save --include-untracked
+
+  # apply last stashed changes
+  $ git stash apply
+  $ git stash apply stash@{1}
+
+  # list stashes
+  $ git stash list
+
+  # list stashes and summarize file changes
+  $ git stash list --stat
+
+  # list stashes and show file diffs
+  $ git stash list --patch
+
+  # show last stash
+  $ git stash show
+
+  # show one particular stash
+  $ git stash show stash@{0}
+
+  # delete stash
+  $ git stash drop
+
+  # delete all
+  $ git stash clear
+
+  # git stash apply and drop
+  $ git stash pop
+
+  # restore stash to a new branch
+  $ git stash branch <name> stash@{index}
+
+# DIFF
+  # show differences
+  $ git diff
+  $ git diff HEAD
+
+  # parent of last commit
+  $ git diff HEAD^
+
+  # diff grandparent of last commit
+  $ git diff HEAD^^
+
+  # N commits ago
+  $ got diff HEAD~N
+
+  # second most recent commit vs most recent
+  $ git diff HEAD^..HEAD
+
+  # between two branches
+  $ git diff branch_1 branch_2
+
+  # range of SHAs
+  $ git diff f5a6sdfsfsdfsdfff9..4sdsdfsdfsdfsdffb063f
+
+# ALIASES
+  > git config alias.<name> <command>
+
+  # git st -> git statuts
+  $ git config --global alias.st status
+
+  # git co -> git checkout
+  $ git config --global alias.co checkout
+
+  # git br -> git branch
+  $ git config --global alias.br branch
+
+  # git ci -> git commit
+  $ git config --global alias.ci commit
+
+
+# pull (Pull is a high-level request that runs ‘fetch’ then a ‘merge’)
+$ git pull remote_name branch_name
+
+# fetch (is similar to pull, except it won’t do any merging)
+$ git fetch remote_name branch_name
